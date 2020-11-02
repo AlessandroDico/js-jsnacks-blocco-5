@@ -13,20 +13,20 @@ $(document).ready(function(){
 
     var bike = [
         {
-            'name' : 'bianchi',
-            'weight' : 10,
+            'name' : 'Bianchi',
+            'weight' : 8.9,
         },
         {
-            'name' : 'specialized',
-            'weight' : 9,
+            'name' : 'Specialized',
+            'weight' : 9.1,
         },
         {
-            'name' : 'cannondale',
-            'weight' : 8,
+            'name' : 'Cannondale',
+            'weight' : 8.1,
         },
         {
-            'name' : 'colnago',
-            'weight' : 11,
+            'name' : 'Colnago',
+            'weight' : 8.2,
         },
     ];
 
@@ -54,17 +54,28 @@ $(document).ready(function(){
     console.log(bikeNames);
 
 // TROVO LA BICI COL PESO MINORE
-    var minWeigth = Math.min.apply(Math, bikeWeights);
-    console.log(minWeigth);
+    var minWeight = findLessWeight(bikeWeights);
+    console.log(minWeight);
 
     // TROVO IN CHE POSIZIONE SI TROVA RISPETTO ALL'ARRAY IL PESO MINORE
 
-    var indexWeight = bikeWeights.indexOf(minWeigth);
+    var indexWeight = bikeWeights.indexOf(minWeight);
     console.log(indexWeight);
 
     // TROVO NELL'ARRAY DEI NOMI BICI QUALE CORRISPONDE ALLO STESSO INDICE DELLA BICI CON PESO MINORE
     var indexName = bikeNames[indexWeight];
     console.log(indexName);
+
+
+    $('.result').text('La bici con peso minore è ' + indexName + ' con un peso di ' + minWeight + ' kg'  );
+
+// AGGIUNGO FUNZIONE PER TROVARE PESO MINORE
+
+    function findLessWeight(weights) {
+        var findLess = Math.min.apply(Math, weights);
+        return findLess;
+    }
+
 
 
 /*
@@ -73,22 +84,22 @@ SOLUZIONI DIVERSE PER TROVARE IL NUMERO MINORE IN UN ARRAY
 
 // SOLUZIONE 1
 // bisogna dargli due valori in questo caso e devono essere convertibili in numeri.. con null omettiamo volontariamente un valore
-    var minWeigth = Math.min.apply(null, bikeWeights);
+    var minWeight = Math.min.apply(null, bikeWeights);
 
-    console.log(minWeigth);
+    console.log(minWeight);
 
 
     //SOLUZIONE2
     // oppure con math a posto di null
-    var minWeigth = Math.min.apply(Math, bikeWeights);
+    var minWeight = Math.min.apply(Math, bikeWeights);
 
-    console.log(minWeigth);
+    console.log(minWeight);
 
 // SOLUZIONE CON ES6
 //è sufficiente mettere tre puntini e il nome dell'array in questione
-    var minWeigth = Math.min(...bikeWeights);
+    var minWeight = Math.min(...bikeWeights);
 
-    console.log(minWeigth);
+    console.log(minWeight);
 
 */
 
