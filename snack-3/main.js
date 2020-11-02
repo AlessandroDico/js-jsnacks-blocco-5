@@ -44,13 +44,18 @@ $(document).ready(function(){
     // console.log(newAnimals);
 
     for (var key in newAnimals) {
-        newAnimals[key].position = 'a';
+        newAnimals[key].position = generateRandomLetter();
     }
 
     console.log(newAnimals);
 
 
 
+    function generateRandomLetter() {
+        var alphabet = "abcdefghijklmnopqrstuvwxyz";
+        var letterRnd = alphabet[Math.floor(Math.random() * alphabet.length)];
+        return letterRnd;
+    }
 
 
 
