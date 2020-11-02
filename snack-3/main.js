@@ -36,7 +36,21 @@ $(document).ready(function(){
 
     var newAnimals = animals;
 
-    console.log(newAnimals); 
+    console.log(newAnimals);
+
+    // newAnimals[0].position = 'lettera casuale';
+    // newAnimals[1].position = 'lettera casuale';
+    // newAnimals[2].position = 'lettera casuale';
+    // console.log(newAnimals);
+
+    for (var key in newAnimals) {
+        newAnimals[key].position = 'a';
+    }
+
+    console.log(newAnimals);
+
+
+
 
 
 
