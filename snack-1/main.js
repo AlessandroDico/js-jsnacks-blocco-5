@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    console.log('hello');
+    // console.log('hello');
 
     // JSnack1: Creare un array di oggetti: ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso. Stampare a schermo la bici con peso minore.
 
@@ -37,17 +37,39 @@ $(document).ready(function(){
     // posso pushare i valori del peso dentro un array e controllare quale numero è più piccolo
 
     var bikeWeights = [];
+    var bikeNames = [];
 
     for (var i = 0; i < bike.length; i++) {
 
         for (var key in bike[i]) {
             if (key == 'weight') {
                 bikeWeights.push(bike[i][key]);
+            } else if (key == 'name') {
+                bikeNames.push(bike[i][key])
             }
         }
     }
 
     console.log(bikeWeights);
+    console.log(bikeNames);
+
+// TROVO LA BICI COL PESO MINORE
+    var minWeigth = Math.min.apply(Math, bikeWeights);
+    console.log(minWeigth);
+
+    // TROVO IN CHE POSIZIONE SI TROVA RISPETTO ALL'ARRAY IL PESO MINORE
+
+    var indexWeight = bikeWeights.indexOf(minWeigth);
+    console.log(indexWeight);
+
+    // TROVO NELL'ARRAY DEI NOMI BICI QUALE CORRISPONDE ALLO STESSO INDICE DELLA BICI CON PESO MINORE
+    var indexName = bikeNames[indexWeight];
+    console.log(indexName);
+
+
+/*
+SOLUZIONI DIVERSE PER TROVARE IL NUMERO MINORE IN UN ARRAY
+
 
 // SOLUZIONE 1
 // bisogna dargli due valori in questo caso e devono essere convertibili in numeri.. con null omettiamo volontariamente un valore
@@ -55,6 +77,8 @@ $(document).ready(function(){
 
     console.log(minWeigth);
 
+
+    //SOLUZIONE2
     // oppure con math a posto di null
     var minWeigth = Math.min.apply(Math, bikeWeights);
 
@@ -66,6 +90,6 @@ $(document).ready(function(){
 
     console.log(minWeigth);
 
-
+*/
 
 });
