@@ -53,7 +53,7 @@ $(document).ready(function(){
 
     console.log(includingNames);
 
-    $('.final-names').text(includingNames);
+    $('.final-names').text(includingNames.join(' - '));
 
 
 
