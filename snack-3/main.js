@@ -30,13 +30,66 @@ $(document).ready(function(){
 
     console.log(animals);
 
-    console.log(animals[0].name);
+    //----NUOVA SOLUZIONE---
+
+    var animaliNuovi = [];
+
+    for (var i = 0; i < animals.length; i++) {
+
+        var animaliCopia = {};
+        for (var key in animals[i]) {
+            animaliCopia[key] = animals[i][key];
+        }
+
+        animaliNuovi.push(animaliCopia);
+
+        animaliNuovi[i].position = generateRandomLetter();
+
+    }
+
+
+    console.log(animaliNuovi);
+
+    //----FINE NUOVA SOLUZIONE---
+
+    //console.log(animals[0].name);
 
     // creo una copia dell'array
 
-    var newAnimals = animals;
+    // var newAnimals = animals;
 
-    console.log(newAnimals);
+    //-----------ATTENZIONE------------
+    // FACENDO COSI' è COME SE METTESSI UNA NUOVA ETICHETTA MA ALLA STESSA SCATOLA (ANIMALS)
+    // COPIARE IN QUESTO MODO L'ARRAY è SBAGLIATO PERCHE' SE MODIFICO IL SECONDO ARRAY MI MODIFICA ANCHE IL PRIMO
+    // QUESTO SI CHIAMA SIDE EFFECT (EFFETTO COLLATERALE)
+    // QUANDO FACCIO COSI' STO COPIANDO L'INDIRIZZO DI MEMORIA NON STO COPIANDO L'ARRAY
+
+    // QUESTO NON SUCCEDE CON LE VARIABILI NORMALI 'PRIMITIVE'
+    /*
+
+    var a = 5;
+    var b = a;
+
+    b++;
+    console.log(a);
+    console.log(b); //a = 5    b = 6
+    */
+
+    // QUINDI COSA POSSO  FARE? POSSO CLONARLO ('COPIA PROFONDA')
+
+    // POSSO SCORRERE TUTTO L'ARRAY DEI PRODOTTI
+    // RECUPERO UN ELEMENTO ALLA VOLTA E LO PUSHO NEL NUOVO ARRAY
+
+
+
+    // for (var key in animaliNuovi) {
+    //     animaliNuovi[key].position = generateRandomLetter();
+    // }
+
+
+    /* VECCHIA SOLUZIONE ERRATA (perchè modifica anche il primo array)
+
+    // console.log(newAnimals);
 
     // newAnimals[0].position = 'lettera casuale';
     // newAnimals[1].position = 'lettera casuale';
@@ -49,7 +102,9 @@ $(document).ready(function(){
 
     console.log(newAnimals);
 
+   */ //FINE VECCHIA SOLUZIONE ERRATA
 
+// FUNZIONE PER GENERARE UNA LETTERA CASUALE
 
     function generateRandomLetter() {
         var alphabet = "abcdefghijklmnopqrstuvwxyz";
